@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentRide - Vehicle Rental Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <h1>🚗 RentRide</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#vehicles">Vehicles</a>
+      <a href="#booking">Book Now</a>
+      <a href="#mybookings">My Bookings</a>
+      <a href="#admin">Admin</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#register">Register</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <h2>Rent Cars, Bikes &amp; Scooters Online</h2>
+    <p>Browse vehicles, compare prices, check availability and book in minutes.</p>
+    <a class="btn" href="#vehicles">Browse Vehicles</a>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="box"><h3>📅 Easy Booking</h3><p>Pick your dates and confirm instantly.</p></div>
+    <div class="box"><h3>💰 Clear Pricing</h3><p>See the total cost before you pay.</p></div>
+    <div class="box"><h3>🔔 Notifications</h3><p>Get updates on every booking.</p></div>
+    <div class="box"><h3>🛠 Well Maintained</h3><p>Regular servicing for every vehicle.</p></div>
+  </section>
+
+  <!-- Vehicle Listing -->
+  <section id="vehicles">
+    <h2>Available Vehicles</h2>
+    <div class="filters">
+      <input type="text" id="search" placeholder="Search by name...">
+      <select id="typeFilter">
+        <option value="all">All Types</option>
+        <option value="Car">Cars</option>
+        <option value="Bike">Bikes</option>
+        <option value="Scooter">Scooters</option>
+      </select>
+      <select id="sortFilter">
+        <option value="none">Sort by Price</option>
+        <option value="low">Low to High</option>
+        <option value="high">High to Low</option>
+      </select>
+    </div>
+    <div id="vehicleList" class="grid"></div>
+  </section>
+
+  <!-- Booking -->
+  <section id="booking" class="alt">
+    <h2>Book a Vehicle</h2>
+    <form id="bookingForm">
+      <label>Full Name</label>
+      <input type="text" id="custName" required>
+
+      <label>Email</label>
+      <input type="email" id="custEmail" required>
+
+      <label>Vehicle</label>
+      <select id="vehicleSelect" required></select>
+
+      <label>Pickup Date</label>
+      <input type="date" id="startDate" required>
+
+      <label>Return Date</label>
+      <input type="date" id="endDate" required>
+
+      <label>Payment Method</label>
+      <select id="payment">
+        <option>UPI</option>
+        <option>Credit / Debit Card</option>
+        <option>Cash on Pickup</option>
+      </select>
+
+      <p class="total">Total Price: <span id="totalPrice">₹0</span></p>
+      <p id="formMsg"></p>
+      <button type="submit" class="btn">Confirm Booking</button>
+    </form>
+  </section>
+
+  <!-- My Bookings -->
+  <section id="mybookings">
+    <h2>My Bookings (Booking History &amp; Status)</h2>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Customer</th><th>Vehicle</th><th>From</th><th>To</th><th>Total</th><th>Status</th><th>Action</th></tr>
+      </thead>
+      <tbody id="bookingTable"></tbody>
+    </table>
+    <p id="noBooking">No bookings yet. Make your first booking above!</p>
+  </section>
+
+  <!-- Admin Dashboard -->
+  <section id="admin" class="alt">
+    <h2>Provider / Admin Dashboard</h2>
+    <div class="stats">
+      <div class="box"><h3 id="statVehicles">0</h3><p>Total Vehicles</p></div>
+      <div class="box"><h3 id="statAvailable">0</h3><p>Available</p></div>
+      <div class="box"><h3 id="statBookings">0</h3><p>Bookings</p></div>
+      <div class="box"><h3 id="statRevenue">₹0</h3><p>Revenue</p></div>
+    </div>
+
+    <h3>Fleet &amp; Maintenance</h3>
+    <table>
+      <thead>
+        <tr><th>Vehicle</th><th>Type</th><th>Price/Day</th><th>Availability</th><th>Last Service</th><th>Next Service</th></tr>
+      </thead>
+      <tbody id="fleetTable"></tbody>
+    </table>
+
+    <h3>Add New Vehicle</h3>
+    <form id="addForm">
+      <input type="text" id="newName" placeholder="Vehicle name" required>
+      <select id="newType">
+        <option>Car</option><option>Bike</option><option>Scooter</option>
+      </select>
+      <input type="number" id="newPrice" placeholder="Price per day (₹)" min="1" required>
+      <button type="submit" class="btn">Add Vehicle</button>
+    </form>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews">
+    <h2>Customer Reviews</h2>
+    <div class="grid">
+      <div class="box"><p>"Smooth booking and the car was spotless!"</p><strong>- Aarav ⭐⭐⭐⭐⭐</strong></div>
+      <div class="box"><p>"Affordable scooter rental for my city trip."</p><strong>- Priya ⭐⭐⭐⭐</strong></div>
+      <div class="box"><p>"Loved the clear pricing and quick support."</p><strong>- Rohan ⭐⭐⭐⭐⭐</strong></div>
+    </div>
+  </section>
+
+  <!-- Registration -->
+  <section id="register" class="alt">
+    <h2>User Registration</h2>
+    <form id="regForm">
+      <label>Name</label>
+      <input type="text" required>
+      <label>Email</label>
+      <input type="email" required>
+      <label>Phone</label>
+      <input type="tel" required>
+      <label>Driving Licence No.</label>
+      <input type="text" required>
+      <label>Password</label>
+      <input type="password" minlength="6" required>
+      <p id="regMsg"></p>
+      <button type="submit" class="btn">Register</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2026 RentRide - Vehicle Rental Platform | Contact: support@rentride.com | +91 98765 43210</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

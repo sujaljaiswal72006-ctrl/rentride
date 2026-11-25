@@ -1,0 +1,110 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+  line-height: 1.5;
+  background: #ffffff;
+}
+
+header {
+  background: #0d47a1;
+  color: white;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 16px;
+}
+nav a:hover { text-decoration: underline; }
+
+section { padding: 40px 24px; max-width: 1100px; margin: auto; }
+section h2 { margin-bottom: 20px; color: #0d47a1; }
+.alt { background: #eef3fb; max-width: 100%; }
+.alt > * { max-width: 1050px; margin-left: auto; margin-right: auto; }
+
+.hero {
+  background: #1565c0;
+  color: white;
+  text-align: center;
+  max-width: 100%;
+  padding: 80px 20px;
+}
+.hero h2 { color: white; font-size: 34px; }
+.hero p { margin: 10px 0 20px; }
+
+.btn {
+  display: inline-block;
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+}
+.btn:hover { background: #e68900; }
+
+.features, .stats, .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.features { padding: 30px 24px; max-width: 1100px; margin: auto; }
+.stats { margin-bottom: 24px; }
+
+.box, .card {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 16px;
+  text-align: center;
+}
+.card .icon { font-size: 48px; }
+.card h3 { margin: 8px 0; }
+.card .price { color: #0d47a1; font-weight: bold; margin: 6px 0; }
+.card button { margin-top: 10px; }
+.tag { padding: 2px 8px; border-radius: 10px; font-size: 12px; color: white; }
+.yes { background: #2e7d32; }
+.no { background: #c62828; }
+
+.filters { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+input, select {
+  padding: 9px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+form { max-width: 450px; background: white; padding: 20px; border-radius: 6px; border: 1px solid #ccc; }
+form label { display: block; margin-top: 10px; font-weight: bold; }
+form input, form select { width: 100%; }
+#addForm { display: flex; flex-direction: column; gap: 10px; }
+.total { margin: 14px 0; font-size: 18px; font-weight: bold; }
+#formMsg, #regMsg { margin-bottom: 10px; color: #2e7d32; font-weight: bold; }
+
+table { width: 100%; border-collapse: collapse; background: white; margin-bottom: 20px; }
+th, td { border: 1px solid #ccc; padding: 8px; text-align: left; font-size: 14px; }
+th { background: #0d47a1; color: white; }
+.table-wrap { overflow-x: auto; }
+#noBooking { margin-top: 10px; color: #666; }
+section h3 { margin: 16px 0 10px; }
+
+footer { background: #222; color: white; text-align: center; padding: 20px; }
+
+/* Responsive */
+@media (max-width: 700px) {
+  header { flex-direction: column; }
+  nav a { margin: 0 8px; display: inline-block; }
+  .hero h2 { font-size: 26px; }
+  table { display: block; overflow-x: auto; }
+}
